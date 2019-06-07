@@ -47,9 +47,9 @@ Sidebar {.sidebar}
 
 ### Hello, Open Scientist!
 
-This dashboard gives an overview of the [GitHub](https://github.com/opensciencemooc) popularity statistics and activities of the [Open Science MOOC](https://opensciencemooc.eu/). 
+This dashboard gives you an overview of the popularity statistics and activities of our **[Open Science MOOC](https://opensciencemooc.eu/)** on [GitHub](https://github.com/opensciencemooc). 
 
-If you want to get involved, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on the project. 
+If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on all things Open Science. 
 
 *Data for this analysis was last retrieved on June 07, 2019.*
 
@@ -135,7 +135,7 @@ contributions <- contributors_df %>%
   select(contributions) %>%
   summarize(sum(contributions, na.rm = TRUE)) %>%
   pull()
-valueBox(contributions, icon = "fa-user-edit", color = "#91aac3")
+valueBox(contributions, icon = "fa-keyboard", color = "#91aac3")
 ```
 
 ### people contributed {.value-box}
@@ -156,7 +156,7 @@ collaborations <- contributors_df %>%
   rename(repository = df_id, name = login) %>%
   widyr::pairwise_count(name, repository, sort = TRUE, upper = FALSE) %>%
   nrow()
-valueBox(collaborations, icon = "fa-globe", color = "#91aac3")
+valueBox(collaborations, icon = "fa-users", color = "#91aac3")
 ```
 
 Row {data-height=430}

@@ -107,7 +107,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Contributors & collaboration network
+Contributors | collaboration network
 =======================================================================
 
 Row
@@ -149,7 +149,7 @@ Row {data-height=430}
 
 ### Collaboration network {data-width=700}
 
-This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name. You can also drag and zoom them if you like.
+This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
 
 ***
 

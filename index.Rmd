@@ -39,8 +39,8 @@ background-color: #7d3945 !important;
   border-top-color: #7d3945;
 }
 
-a:link {
-  color: #7d3945;
+.section.sidebar a:link, .section.sidebar  a:visited, .section.sidebar  a:hover, .section.sidebar  a:active { 
+  color:#7d3945; 
 }
 
 </style>

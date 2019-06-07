@@ -8,7 +8,7 @@ body {
 
 .navbar-inverse {
   background-color: #2C3E50;
-    border-color: #2C3E50;
+  border-color: #2C3E50;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -19,8 +19,7 @@ body {
 
 .navbar-nav li a:hover, .navbar-nav > .active > a {
   color: #fff !important;
-    
-    background-color: #7d3945 !important;
+  background-color: #7d3945 !important;
 }
 
 .nav-tabs-custom > .nav-tabs > li.active {

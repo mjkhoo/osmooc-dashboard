@@ -4,6 +4,8 @@ output:
   flexdashboard::flex_dashboard:
     orientation: rows
     css: style.css
+    logo: mooc-logo.png
+    favicon: mooc-logo.png
     navbar:
       - { title: "About", href: "https://dataplanes.org" }
     source_code: https://github.com/lhehnke/osmooc-dashboard
@@ -68,7 +70,7 @@ forks <- repos_df_mod %>%
 valueBox(forks, icon = "fa-code-fork", color = "#91aac3")
 ```
 
-Row {data-height=350} {.tabset .tabset-fade}
+Row {.tabset .tabset-fade data-height=350}
 -----------------------------------------------------------------------
 
 ### Which modules are starred the most?

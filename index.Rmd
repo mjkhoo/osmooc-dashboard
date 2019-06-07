@@ -3,47 +3,12 @@ title: "Open Science MOOC"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
+    css: style.css
     navbar:
       - { title: "About", href: "https://dataplanes.org" }
     source_code: https://github.com/lhehnke/osmooc-dashboard
-    vertical_layout: scroll
-    smooth_scroll: true
+
 ---
-
-<style>
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
-body {
-  background-color: "#91aac3";
-  overflow: hidden;
-}
-
-.navbar-inverse {
-  background-color: #2C3E50;
-    border-color: #2C3E50;
-}
-
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
-  background-color: #7d3945;
-}
-
-.navbar-nav li a:hover, .navbar-nav > .active > a {
-color: #fff !important;
-
-background-color: #7d3945 !important;
-}
-
-.nav-tabs-custom > .nav-tabs > li.active {
-  border-top-color: #7d3945;
-}
-
-.section.sidebar a:link, .section.sidebar  a:visited, .section.sidebar  a:hover, .section.sidebar  a:active { 
-  color:#7d3945; 
-}
-
-</style>
 
 ```{r, include = FALSE}
 # Load flexdashboard

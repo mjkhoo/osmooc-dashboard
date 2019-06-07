@@ -32,7 +32,7 @@ Sidebar {.sidebar}
 
 ### Hello, Open Scientist!
 
-This dashboard gives you an overview of the popularity statistics and activities of our **[Open Science MOOC](https://opensciencemooc.eu/)** on [GitHub](https://github.com/opensciencemooc). 
+This dashboard gives you an overview of the repository statistics and user activities of the **[Open Science MOOC](https://opensciencemooc.eu/)** on [GitHub](https://github.com/opensciencemooc). 
 
 If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on all things Open Science. 
 

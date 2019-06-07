@@ -3,9 +3,27 @@ title: "Open Science MOOC"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
-    css: style.css
-source_code: https://github.com/lhehnke
+    navbar:
+      - { title: "About", href: "https://dataplanes.org" }
+    source_code: https://github.com/lhehnke/osmooc-dashboard
+    vertical_layout: scroll
+    smooth_scroll: true
 ---
+
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+body {
+  background-color: "#91aac3";
+  overflow: hidden;
+}
+
+.navbar-inverse {
+  background-color: #2C3E50;
+    border-color: #2C3E50;
+}
+
+</style>
 
 ```{r, include = FALSE}
 # Load flexdashboard
@@ -33,10 +51,10 @@ This dashboard gives an overview of the [GitHub](https://github.com/opensciencem
 
 If you want to get involved, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on the project. 
 
-*Data for this analysis was last retrieved on June 07, 2019. Source code can be found [here](https://github.com/lhehnke/osmooc-dashboard).*
+*Data for this analysis was last retrieved on June 07, 2019.*
 
 
-Overview: Stars & forks
+Popularity stats: Stars & forks
 =======================================================================
 
 Row
@@ -65,7 +83,7 @@ stars <- repos_df_mod %>%
 valueBox(stars, icon = "fa-star", color = "#91aac3")
 ```
 
-Row
+Row {data-height=350} {.tabset .tabset-fade}
 -----------------------------------------------------------------------
 
 ### Which modules are starred the most?
@@ -86,9 +104,6 @@ p <- repos_df_mod %>%
 ggplotly(p)
 ```
 
-Row
------------------------------------------------------------------------
-
 ### Which modules were forked the most?
 
 ```{r}
@@ -107,7 +122,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Contributors & collaboration network
+Activities: Contributors & collaboration network
 =======================================================================
 
 Row
@@ -144,10 +159,10 @@ collaborations <- contributors_df %>%
 valueBox(collaborations, icon = "fa-globe", color = "#91aac3")
 ```
 
-Row
+Row {data-height=450}
 -----------------------------------------------------------------------
 
-### This interactive plot shows the collaboration network. The top three contributors who collaborated the most with other contributors are highlighted. Hover over a node to see the contributor's name. You can drag and zoom them if you like.
+### Collaboration network {data-width=700}
 
 ```{r, include = FALSE}
 # Build edgelist
@@ -201,3 +216,9 @@ collab_network_d3 <- forceNetwork(Links = collab_d3$links,
                                   zoom = TRUE)
 collab_network_d3
 ```
+
+### About the network {data-width=340}
+
+This interactive plot shows the GitHub collaboration network for all module repositories. The top three contributors who collaborated the most with other contributors are highlighted. 
+
+Hover over a node to see the respective contributor's name. You can also drag and zoom them if you like.

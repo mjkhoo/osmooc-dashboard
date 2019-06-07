@@ -23,6 +23,26 @@ body {
     border-color: #2C3E50;
 }
 
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background-color: #7d3945;
+}
+
+.navbar-nav li a:hover, .navbar-nav > .active > a {
+color: #fff !important;
+
+background-color: #7d3945 !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #7d3945;
+}
+
+a:link {
+  color: #7d3945;
+}
+
 </style>
 
 ```{r, include = FALSE}

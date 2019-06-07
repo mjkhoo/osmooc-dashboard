@@ -52,20 +52,20 @@ repos <- nrow(repos_df_mod)
 valueBox(repos, icon = "fa-github", color = "#91aac3")
 ```
 
-### Forks {.value-box}
-
-```{r}
-forks <- repos_df_mod %>%
-  summarize(sum(forks_count, na.rm = TRUE))
-valueBox(forks, icon = "fa-code-fork", color = "#91aac3")
-```
-
 ### Stars {.value-box}
 
 ```{r}
 stars <- repos_df_mod %>% 
   summarize(sum(stargazers_count, na.rm = TRUE))
 valueBox(stars, icon = "fa-star", color = "#91aac3")
+```
+
+### Forks {.value-box}
+
+```{r}
+forks <- repos_df_mod %>%
+  summarize(sum(forks_count, na.rm = TRUE))
+valueBox(forks, icon = "fa-code-fork", color = "#91aac3")
 ```
 
 Row {data-height=350} {.tabset .tabset-fade}

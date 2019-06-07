@@ -109,7 +109,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Contributors | collaboration network {data-icon="fa-users"}
+Contributors | Collaboration network {data-icon="fa-users"}
 =======================================================================
 
 Row

@@ -33,7 +33,7 @@ This dashboard gives an overview of the [GitHub](https://github.com/opensciencem
 
 If you want to get involved, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on the project. 
 
-*Data for this analysis was last retrieved on June 07, 2019. Source code can be found [here](https://github.com/lhehnke/openscience-github).*
+*Data for this analysis was last retrieved on June 07, 2019. Source code can be found [here](https://github.com/lhehnke/osmooc-dashboard).*
 
 
 Overview: Stars & forks
@@ -147,7 +147,7 @@ valueBox(collaborations, icon = "fa-globe")
 Row
 -----------------------------------------------------------------------
 
-### This interactive plot shows the collaboration network. The top three contributors who collaborated the most with other contributors are highlighted. Hover over a node to see the contributors' name. You can drag and zoom them if you like.
+### This interactive plot shows the collaboration network. The top three contributors who collaborated the most with other contributors are highlighted. Hover over a node to see the contributor's name. You can drag and zoom them if you like.
 
 ```{r, include = FALSE}
 # Build edgelist

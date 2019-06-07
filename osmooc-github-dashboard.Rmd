@@ -1,0 +1,196 @@
+---
+title: "Open Science MOOC"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    css: style.css
+source_code: https://github.com/lhehnke
+---
+
+```{r, include = FALSE}
+# Load flexdashboard
+library(flexdashboard)
+
+# Install and load packages using pacman
+if (!require("pacman")) install.packages("pacman")
+library(pacman)
+
+p_load(ggraph, igraph, networkD3, plotly, tidygraph, tidyverse)
+
+# Import data
+load(file = "osmooc-github.RData")
+```
+
+Sidebar {.sidebar}
+=======================================================================
+
+### Hello, Open Scientist!
+
+This dashboard gives an overview of the [GitHub](https://github.com/opensciencemooc) popularity statistics and activities of the [Open Science MOOC](https://opensciencemooc.eu/). 
+
+If you want to get involved, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on the project. 
+
+*Data for this analysis was last retrieved on June 06, 2019. Source code can be found [here](https://github.com/lhehnke/openscience-github).*
+
+
+Overview: Stars & forks
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### module repositories exist {.value-box}
+
+```{r}
+repos <- nrow(repos_df_mod)
+valueBox(repos, icon = "fa-github")
+```
+
+### people forked them {.value-box}
+
+```{r}
+forks <- repos_df_mod %>%
+  summarize(sum(forks_count, na.rm = TRUE))
+valueBox(forks, icon = "fa-code-fork")
+```
+
+### stars were awarded {.value-box}
+
+```{r}
+stars <- repos_df_mod %>% 
+  summarize(sum(stargazers_count, na.rm = TRUE))
+valueBox(stars, icon = "fa-star")
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Which modules are starred the most?
+
+```{r}
+# Plot most starred repos
+
+p <- repos_df_mod %>%
+  select(name, stargazers_count) %>%
+  group_by(name) %>%
+  ggplot(aes(reorder(name, stargazers_count), stargazers_count)) +
+  geom_bar(stat = "identity", width = 0.5, alpha = 0.8, color = "#2c3e50", fill = "#2c3e50") +
+  xlab("") + ylab("") +
+  coord_flip() + theme_minimal()
+
+ggplotly(p)
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Which modules were forked the most?
+
+```{r}
+# Plot most forked repos
+p2 <- repos_df_mod %>%
+  select(name, forks_count) %>%
+  group_by(name) %>%
+  arrange(desc(forks_count)) %>%
+  ggplot(aes(reorder(name, forks_count), forks_count)) +
+  geom_bar(stat = "identity", width = 0.5, alpha = 0.8, color = "#2c3e50", fill = "#2c3e50") +
+  xlab("") + ylab("") +
+  coord_flip() + theme_minimal()
+
+ggplotly(p2)
+```
+
+Contributors & collaboration network
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### contributions in total {.value-box}
+
+```{r}
+contributions <- contributors_df %>%
+  select(contributions) %>%
+  summarize(sum(contributions, na.rm = TRUE)) %>%
+  pull()
+valueBox(contributions, icon = "fa-user-edit")
+```
+
+### people contributed {.value-box}
+
+```{r}
+collaborators <- contributors_df %>% 
+  select(login) %>%
+  unique() %>%
+  nrow()
+valueBox(collaborators, icon = "fa-user")
+```
+
+### collaborations took place {.value-box}
+
+```{r}
+collaborations <- contributors_df %>%
+  select(df_id, login) %>%
+  rename(repository = df_id, name = login) %>%
+  widyr::pairwise_count(name, repository, sort = TRUE, upper = FALSE) %>%
+  nrow()
+valueBox(collaborations, icon = "fa-globe")
+```
+
+Row
+-----------------------------------------------------------------------
+
+### This interactive plot shows the collaboration network. The top three contributors who collaborated the most with other collaborators are highlighted.\nHover over a node to see the contributors' name. You can drag and zoom them if you like.
+
+```{r, include = FALSE}
+# Build edgelist
+collab <- contributors_df %>%
+  select(df_id, login) %>%
+  rename(repository = df_id, name = login) %>%
+  widyr::pairwise_count(name, repository, sort = TRUE, upper = FALSE)
+
+# Convert to graph object
+collab_graph <- graph_from_data_frame(collab, directed = FALSE) %>% 
+  as_tbl_graph()
+```
+
+```{r, include = FALSE}
+# Compute network metrics
+#members <- membership(cluster_walktrap(collab_graph))
+degree <- igraph::degree(collab_graph)
+group <- ifelse(degree >= 40, "top", "regular")
+weight <- E(collab_graph)$n
+
+# Convert igraph graph to networkD3 object
+collab_d3 <- igraph_to_networkD3(collab_graph, group = group)
+
+# Set metrics as attributes
+collab_d3$nodes$degree <- degree
+collab_d3$links$weight <- weight
+
+# Set custom color range for grouping variable
+colors <- JS('d3.scaleOrdinal(["#7d3945", "#2c3e50"])')
+```
+
+```{r}
+# Plot interactive network
+collab_network_d3 <- forceNetwork(Links = collab_d3$links, 
+                                  Nodes = collab_d3$nodes,
+                                  Source = "source", 
+                                  Target = "target", 
+                                  NodeID = "name",
+                                  Nodesize = "degree", 
+                                  Group = "group", 
+                                  colourScale = colors, # node colors based on "group"
+                                  opacity = 0.8, 
+                                  opacityNoHover = 0.1, 
+                                  fontSize = 20, 
+                                  fontFamily = "Lato", 
+                                  Value = "weight", 
+                                  linkColour = "#91aac3", 
+                                  linkDistance = 150,
+                                  linkWidth = JS("function(d) { return d.value*2; }"), 
+                                  charge = -50, 
+                                  zoom = TRUE)
+collab_network_d3
+```

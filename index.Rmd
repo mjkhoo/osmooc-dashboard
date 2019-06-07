@@ -149,7 +149,7 @@ valueBox(collaborations, icon = "fa-users", color = "#91aac3")
 Row {data-height=430}
 -----------------------------------------------------------------------
 
-### Collaboration network {data-width=700}
+### What does the collaboration network look like? {data-width=700}
 
 This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
 
@@ -208,7 +208,7 @@ collab_network_d3 <- forceNetwork(Links = collab_d3$links,
 collab_network_d3
 ```
 
-### Degree centrality scores {data-width=340} 
+### Which contributors collaborated the most? {data-width=340} 
 
 ```{r}
 collab_graph %>% 

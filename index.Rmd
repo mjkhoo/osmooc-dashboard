@@ -80,14 +80,14 @@ Overview
 Row
 -----------------------------------------------------------------------
 
-### module repositories exist {.value-box}
+### Module repositories {.value-box}
 
 ```{r}
 repos <- nrow(repos_df_mod)
 valueBox(repos, icon = "fa-github", color = "#91aac3")
 ```
 
-### people forked them {.value-box}
+### Forks {.value-box}
 
 ```{r}
 forks <- repos_df_mod %>%
@@ -95,7 +95,7 @@ forks <- repos_df_mod %>%
 valueBox(forks, icon = "fa-code-fork", color = "#91aac3")
 ```
 
-### stars were awarded {.value-box}
+### Stars {.value-box}
 
 ```{r}
 stars <- repos_df_mod %>% 
@@ -148,7 +148,7 @@ Contributors & collaboration network
 Row
 -----------------------------------------------------------------------
 
-### contributions in total {.value-box}
+### Contributions {.value-box}
 
 ```{r}
 contributions <- contributors_df %>%
@@ -158,7 +158,7 @@ contributions <- contributors_df %>%
 valueBox(contributions, icon = "fa-keyboard", color = "#91aac3")
 ```
 
-### people contributed {.value-box}
+### Contributors {.value-box}
 
 ```{r}
 collaborators <- contributors_df %>% 
@@ -168,7 +168,7 @@ collaborators <- contributors_df %>%
 valueBox(collaborators, icon = "fa-user", color = "#91aac3")
 ```
 
-### collaborations took place {.value-box}
+### Collaborations {.value-box}
 
 ```{r}
 collaborations <- contributors_df %>%
@@ -184,7 +184,7 @@ Row {data-height=430}
 
 ### Collaboration network {data-width=700}
 
-This interactive plot shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
+This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
 
 ***
 

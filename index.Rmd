@@ -33,7 +33,7 @@ library(flexdashboard)
 if (!require("pacman")) install.packages("pacman")
 library(pacman)
 
-p_load(ggraph, igraph, networkD3, plotly, tidygraph, tidyverse)
+p_load(ggraph, igraph, kableExtra, networkD3, plotly, tidygraph, tidyverse)
 
 # Set directory
 MAIN_DIR <- rprojroot::find_rstudio_root_file()
@@ -54,7 +54,7 @@ If you want to get involved, you can join our ever-growing [Slack community](htt
 *Data for this analysis was last retrieved on June 07, 2019.*
 
 
-Popularity stats: Stars & forks
+Overview
 =======================================================================
 
 Row
@@ -122,7 +122,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Activities: Contributors & collaboration network
+Contributors & collaboration network
 =======================================================================
 
 Row
@@ -159,10 +159,14 @@ collaborations <- contributors_df %>%
 valueBox(collaborations, icon = "fa-globe", color = "#91aac3")
 ```
 
-Row {data-height=450}
+Row {data-height=430}
 -----------------------------------------------------------------------
 
 ### Collaboration network {data-width=700}
+
+This interactive plot shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
+
+***
 
 ```{r, include = FALSE}
 # Build edgelist
@@ -217,8 +221,15 @@ collab_network_d3 <- forceNetwork(Links = collab_d3$links,
 collab_network_d3
 ```
 
-### About the network {data-width=340}
+### Degree centrality scores {data-width=340} 
 
-This interactive plot shows the GitHub collaboration network for all module repositories. The top three contributors who collaborated the most with other contributors are highlighted. 
-
-Hover over a node to see the respective contributor's name. You can also drag and zoom them if you like.
+```{r}
+collab_graph %>% 
+  mutate(centrality = centrality_degree(weight = n)) %>%
+  as_tibble() %>%
+  arrange(-centrality, name) %>%
+  top_n(10, centrality) %>%
+  rename(Contributor = name, "Degree centrality" = centrality) %>%
+  kable(escape = FALSE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```{r}

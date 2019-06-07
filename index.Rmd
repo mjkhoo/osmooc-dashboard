@@ -36,7 +36,7 @@ This dashboard gives you an overview of the popularity statistics and activities
 
 If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on all things Open Science. 
 
-*Data for this analysis was last retrieved on June 07, 2019.*
+*Data for the analysis was collected on June 07, 2019.*
 
 
 Overview
@@ -89,7 +89,7 @@ p <- repos_df_mod %>%
 ggplotly(p)
 ```
 
-### Which modules were forked the most?
+### Which modules are forked the most?
 
 ```{r}
 # Plot most forked repos
@@ -149,7 +149,7 @@ Row {data-height=430}
 
 ### Collaboration network {data-width=700}
 
-This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
+This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name. You can also drag and zoom them if you like.
 
 ***
 

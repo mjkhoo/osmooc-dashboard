@@ -120,7 +120,7 @@ contributions <- contributors_df %>%
   select(contributions) %>%
   summarize(sum(contributions, na.rm = TRUE)) %>%
   pull()
-valueBox(contributions, icon = "fa-keyboard", color = "#91aac3")
+valueBox(contributions, icon = "fa-tasks", color = "#91aac3")
 ```
 
 ### Contributors {.value-box}

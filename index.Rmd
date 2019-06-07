@@ -46,7 +46,7 @@ Row
 
 ```{r}
 repos <- nrow(repos_df_mod)
-valueBox(repos, icon = "fa-github")
+valueBox(repos, icon = "fa-github", color = "#91aac3")
 ```
 
 ### people forked them {.value-box}
@@ -54,7 +54,7 @@ valueBox(repos, icon = "fa-github")
 ```{r}
 forks <- repos_df_mod %>%
   summarize(sum(forks_count, na.rm = TRUE))
-valueBox(forks, icon = "fa-code-fork")
+valueBox(forks, icon = "fa-code-fork", color = "#91aac3")
 ```
 
 ### stars were awarded {.value-box}
@@ -62,7 +62,7 @@ valueBox(forks, icon = "fa-code-fork")
 ```{r}
 stars <- repos_df_mod %>% 
   summarize(sum(stargazers_count, na.rm = TRUE))
-valueBox(stars, icon = "fa-star")
+valueBox(stars, icon = "fa-star", color = "#91aac3")
 ```
 
 Row
@@ -120,7 +120,7 @@ contributions <- contributors_df %>%
   select(contributions) %>%
   summarize(sum(contributions, na.rm = TRUE)) %>%
   pull()
-valueBox(contributions, icon = "fa-user-edit")
+valueBox(contributions, icon = "fa-user-edit", color = "#91aac3")
 ```
 
 ### people contributed {.value-box}
@@ -130,7 +130,7 @@ collaborators <- contributors_df %>%
   select(login) %>%
   unique() %>%
   nrow()
-valueBox(collaborators, icon = "fa-user")
+valueBox(collaborators, icon = "fa-user", color = "#91aac3")
 ```
 
 ### collaborations took place {.value-box}
@@ -141,7 +141,7 @@ collaborations <- contributors_df %>%
   rename(repository = df_id, name = login) %>%
   widyr::pairwise_count(name, repository, sort = TRUE, upper = FALSE) %>%
   nrow()
-valueBox(collaborations, icon = "fa-globe")
+valueBox(collaborations, icon = "fa-globe", color = "#91aac3")
 ```
 
 Row

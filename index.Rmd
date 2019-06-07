@@ -39,7 +39,7 @@ If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack 
 *Data for the analysis was collected on June 07, 2019.*
 
 
-Overview
+Overview {data-icon="fa-chart-line"}
 =======================================================================
 
 Row
@@ -107,7 +107,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Contributors | collaboration network
+Contributors | collaboration network {data-icon="fa-users"}
 =======================================================================
 
 Row

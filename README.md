@@ -12,7 +12,7 @@ Data and source code for [this dashboard](http://www.dataplanes.org/osmooc-dashb
 if (!require("pacman")) install.packages("pacman")
 library(pacman)
 
-p_load(httr, jsonlite, purrr, tidyverse)
+p_load(httr, jsonlite, tidyverse)
 ```
 
 ### Authentication

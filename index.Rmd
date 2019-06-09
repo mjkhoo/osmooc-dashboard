@@ -30,17 +30,16 @@ load(file = paste(MAIN_DIR, "osmooc-github.RData", sep = "/"))
 
 Sidebar {.sidebar}
 =======================================================================
-
+  
 ### Hello, Open Scientist!
-
+  
 This dashboard gives you an overview of the repository statistics and user activities of the **[Open Science MOOC](https://opensciencemooc.eu/)** on [GitHub](https://github.com/opensciencemooc). 
 
 If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on all things Open Science. 
-
+  
 *Data for the analysis was collected on June 07, 2019.*
 
-
-Overview {data-icon="fa-chart-line"}
+GitHub statistics {data-icon="fa-chart-line"}
 =======================================================================
 
 Row
@@ -69,7 +68,7 @@ forks <- repos_df_mod %>%
 valueBox(forks, icon = "fa-code-fork", color = "#91aac3")
 ```
 
-Row {.tabset .tabset-fade data-height=350}
+Row {.tabset .tabset-fade}
 -----------------------------------------------------------------------
 
 ### Which modules are starred the most?
@@ -108,7 +107,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Network {data-icon="fa-users"}
+Collaboration network {data-icon="fa-users"}
 =======================================================================
 
 Row
@@ -145,7 +144,7 @@ collaborations <- contributors_df %>%
 valueBox(collaborations, icon = "fa-users", color = "#91aac3")
 ```
 
-Row {data-height=430}
+Row
 -----------------------------------------------------------------------
 
 ### Who collaborated with whom? {data-width=700}

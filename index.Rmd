@@ -31,8 +31,11 @@ MAIN_DIR <- rprojroot::find_rstudio_root_file()
 load(file = paste(MAIN_DIR, "osmooc-github.RData", sep = "/")) 
 ```
 
-Sidebar {.sidebar}
+Overview {data-icon="fa-chart-line"}
 =======================================================================
+
+Inputs {.sidebar}
+-------------------------------------
   
 ### Hello, Open Scientist!
   
@@ -41,9 +44,6 @@ This dashboard gives you an overview of the repository statistics and user activ
 If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on all things Open Science. 
   
 *Data for the analysis was collected on June 07, 2019.*
-
-Overview {data-icon="fa-chart-line"}
-=======================================================================
 
 Row
 -----------------------------------------------------------------------

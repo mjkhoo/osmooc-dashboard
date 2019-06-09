@@ -148,7 +148,7 @@ valueBox(collaborations, icon = "fa-users", color = "#91aac3")
 Row {data-height=430}
 -----------------------------------------------------------------------
 
-### What does the collaboration network look like? {data-width=700}
+### Who collaborated with whom? {data-width=700}
 
 This interactive graph shows the GitHub collaboration network. The top three contributors who collaborated the most are highlighted. Hover over a node to see the collaborator's name.
 

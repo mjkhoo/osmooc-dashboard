@@ -9,7 +9,6 @@ output:
     navbar:
       - { title: "About", href: "https://dataplanes.org" }
     source_code: https://github.com/lhehnke/osmooc-dashboard
-
 ---
 
 ```{r, include = FALSE}
@@ -109,7 +108,7 @@ p2 <- repos_df_mod %>%
 ggplotly(p2)
 ```
 
-Contributors | Collaboration network {data-icon="fa-users"}
+Network {data-icon="fa-users"}
 =======================================================================
 
 Row

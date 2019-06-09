@@ -8,6 +8,8 @@ output:
     favicon: mooc-logo.png
     navbar:
       - { title: "About", href: "https://dataplanes.org" }
+      - { title: "Join us!", href: "https://opensciencemooc.eu/" }
+
     source_code: https://github.com/lhehnke/osmooc-dashboard
 ---
 
@@ -27,17 +29,6 @@ MAIN_DIR <- rprojroot::find_rstudio_root_file()
 # Import data
 load(file = paste(MAIN_DIR, "osmooc-github.RData", sep = "/")) 
 ```
-
-Sidebar {.sidebar}
-=======================================================================
-  
-### Hello, Open Scientist!
-  
-This dashboard gives you an overview of the repository statistics and user activities of the **[Open Science MOOC](https://opensciencemooc.eu/)** on [GitHub](https://github.com/opensciencemooc). 
-
-If you want to become part of *#TeamOpen*, you can join our ever-growing [Slack community](https://openmooc-ers.slack.com/) or follow us on [Twitter](https://twitter.com/opensciencemooc) for daily news on all things Open Science. 
-  
-*Data for the analysis was collected on June 07, 2019.*
 
 GitHub statistics {data-icon="fa-chart-line"}
 =======================================================================

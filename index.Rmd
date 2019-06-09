@@ -2,6 +2,7 @@
 title: "Open Science MOOC"
 output: 
   flexdashboard::flex_dashboard:
+    theme: yeti
     orientation: rows
     css: style.css
     logo: mooc-logo.png
@@ -9,7 +10,6 @@ output:
     navbar:
       - { title: "About", href: "https://dataplanes.org" }
       - { title: "Join us!", href: "https://opensciencemooc.eu/" }
-
     source_code: https://github.com/lhehnke/osmooc-dashboard
 ---
 

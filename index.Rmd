@@ -4,15 +4,11 @@ output:
   flexdashboard::flex_dashboard:
     orientation: rows
     css: style.css
-    logo: mooc-logo.png
-    favicon: mooc-logo.png
     navbar:
       - { title: "About", href: "https://dataplanes.org" }
       - { title: "Join us!", href: "https://opensciencemooc.eu/" }
     source_code: https://github.com/lhehnke/osmooc-dashboard
 ---
-
-<style type="text/css"> .sidebar { overflow: auto; } </style>
 
 ```{r, include = FALSE}
 # Load flexdashboard
@@ -34,7 +30,7 @@ load(file = paste(MAIN_DIR, "osmooc-github.RData", sep = "/"))
 Overview {data-icon="fa-chart-line"}
 =======================================================================
 
-Inputs {.sidebar}
+Welcome {.sidebar}
 -------------------------------------
   
 ### Hello, Open Scientist!

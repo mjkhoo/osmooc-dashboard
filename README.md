@@ -16,7 +16,7 @@ p_load(httr, jsonlite, tidyverse)
 
 ### Authentication
 
-See https://towardsdatascience.com/accessing-data-from-github-api-using-r-3633fb62cb08 for instructions on how to set up your own GitHub app.
+See e.g. [this article](https://towardsdatascience.com/accessing-data-from-github-api-using-r-3633fb62cb08) for instructions on how to set up your own GitHub app.
 
 ```{r}
 # Set OAuth

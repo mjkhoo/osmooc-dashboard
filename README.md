@@ -1,5 +1,15 @@
 # Open Science MOOC Dashboard
 
+====================================================
+
+IMPORTANT
+
+This is NOT the current version of this tool. It is a version I cloned to experiment with formatting some of the interface elements in order to make the behavior of the dashboard more predictable when expanding and contracting the browser window horizontally.
+
+The current working version of the dashboard is available at the link in the fiollowing section.
+
+====================================================
+
 Data and source code for [this dashboard](http://www.dataplanes.org/osmooc-dashboard/) on the Open Science MOOC's GitHub repository statistics and user activities. 
 
 ## How to collect GitHub data
